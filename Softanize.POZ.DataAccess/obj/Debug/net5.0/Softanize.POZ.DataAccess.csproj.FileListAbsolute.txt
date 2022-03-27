@@ -1,0 +1,15 @@
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\bin\Debug\net5.0\Softanize.POZ.DataAccess.deps.json
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\bin\Debug\net5.0\Softanize.POZ.DataAccess.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\bin\Debug\net5.0\ref\Softanize.POZ.DataAccess.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\bin\Debug\net5.0\Softanize.POZ.DataAccess.pdb
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\obj\Debug\net5.0\Softanize.POZ.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\obj\Debug\net5.0\Softanize.POZ.DataAccess.AssemblyInfoInputs.cache
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\obj\Debug\net5.0\Softanize.POZ.DataAccess.AssemblyInfo.cs
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\obj\Debug\net5.0\Softanize.POZ.DataAccess.csproj.CoreCompileInputs.cache
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\obj\Debug\net5.0\Softanize.POZ.DataAccess.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\obj\Debug\net5.0\ref\Softanize.POZ.DataAccess.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\obj\Debug\net5.0\Softanize.POZ.DataAccess.pdb
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\bin\Debug\net5.0\Softanize.POZ.DataAccess.runtimeconfig.json
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\bin\Debug\net5.0\Softanize.POZ.DataAccess.runtimeconfig.dev.json
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\obj\Debug\net5.0\Softanize.POZ.DataAccess.genruntimeconfig.cache
+D:\Softanize\Softanize.POS\Softanize.POZ.DataAccess\obj\Debug\net5.0\Softanize.POZ.DataAccess.csproj.AssemblyReference.cache

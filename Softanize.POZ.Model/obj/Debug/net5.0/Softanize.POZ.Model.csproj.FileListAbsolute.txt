@@ -1,0 +1,15 @@
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\bin\Debug\net5.0\Softanize.POZ.Model.deps.json
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\bin\Debug\net5.0\Softanize.POZ.Model.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\bin\Debug\net5.0\ref\Softanize.POZ.Model.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\bin\Debug\net5.0\Softanize.POZ.Model.pdb
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\obj\Debug\net5.0\Softanize.POZ.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\obj\Debug\net5.0\Softanize.POZ.Model.AssemblyInfoInputs.cache
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\obj\Debug\net5.0\Softanize.POZ.Model.AssemblyInfo.cs
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\obj\Debug\net5.0\Softanize.POZ.Model.csproj.CoreCompileInputs.cache
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\obj\Debug\net5.0\Softanize.POZ.Model.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\obj\Debug\net5.0\ref\Softanize.POZ.Model.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\obj\Debug\net5.0\Softanize.POZ.Model.pdb
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\bin\Debug\net5.0\Softanize.POZ.Model.runtimeconfig.json
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\bin\Debug\net5.0\Softanize.POZ.Model.runtimeconfig.dev.json
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\obj\Debug\net5.0\Softanize.POZ.Model.genruntimeconfig.cache
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\obj\Debug\net5.0\Softanize.POZ.Model.csproj.AssemblyReference.cache

@@ -2,15 +2,25 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>aspnet-Softanize.POZ.Web-2A0B963B-9E69-4C92-89D0-C5F9ABDFE9D3</UserSecretsId>
+    <UserSecretsId>aspnet-Softanize.POZ.Web-A1656F05-D58D-4C99-9AEB-D98BC1645C25</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.15" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.15" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.15" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Softanize.POZ.DataAccess\Softanize.POZ.DataAccess.csproj" />
+    <ProjectReference Include="..\Softanize.POZ.Model\Softanize.POZ.Model.csproj" />
+    <ProjectReference Include="..\Softanize.POZ.Service\Softanize.POZ.Service.csproj" />
   </ItemGroup>
 
 </Project>
