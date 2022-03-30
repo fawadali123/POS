@@ -1,0 +1,192 @@
+﻿@using Softanize.POZ.DataAccess.Models
+@using Softanize.POZ.Model.DTO;
+@inject Softanize.POZ.Service.Service.My_Item.ItemInterface itemRepositry
+@inject Softanize.POZ.Service.Service.Sub_Category.SubCategoryInterfase subCategoryRepositry
+@inject ISnackbar snake
+@inject NavigationManager NavManager
+
+<div class="container scroll-vertical">
+    <EditForm Model="item" OnValidSubmit="Save">
+        <DataAnnotationsValidator />
+        <MudCard Elevation="25">
+            <MudCardContent>
+                <MudText Typo="Typo.h6">Add/Edit Item</MudText>
+                <div class="row">
+                    <div class="col-md-4">
+                        <MudTextField @bind-Value="item.Name" Label="Item Name"
+                                      Variant="Variant.Text" Margin="Margin.Normal">
+                        </MudTextField>
+                        <ValidationMessage For="()=>item.Name" />
+                    </div>
+                    <div class="col-md-4">
+                        <MudTextField @bind-Value="item.Code" Label="Code"
+                                      Variant="Variant.Text" Margin="Margin.Normal">
+                        </MudTextField>
+                        <ValidationMessage For="()=>item.Code" />
+                    </div>
+                    <div class="col-md-4">
+
+                        <MudTextField @bind-Value="item.Description" Label="Description"
+                                      Variant="Variant.Text" Margin="Margin.Normal">
+                        </MudTextField>
+                        <ValidationMessage For="()=>item.Description" />
+                    </div>
+                    <div class="col-md-4">
+
+                        <MudTextField @bind-Value="item.Price" Label="Price"
+                                      Variant="Variant.Text" Margin="Margin.Normal">
+                        </MudTextField>
+                        <ValidationMessage For="()=>item.Price" />
+                    </div>
+                    <div class="col-md-4">
+                        <MudTextField @bind-Value="item.Gst" Label="GST"
+                                      Variant="Variant.Text" Margin="Margin.Normal">
+                        </MudTextField>
+                        <ValidationMessage For="()=>item.Gst" />
+                    </div>
+                    <div class="col-md-4">
+                        <MudTextField @bind-Value="item.RevisionNumber" Label="RevisionNumber"
+                                      Variant="Variant.Text" Margin="Margin.Normal">
+                        </MudTextField>
+                        <ValidationMessage For="()=>item.RevisionNumber" />
+                    </div>
+                    <div class="col-md-4">
+                        <select @onchange="seletedItemA" class="form-control">
+                            <option value="0">--select subCategory--</option>
+                            @foreach (var template in subCategories)
+                            {
+                                <option value=@template.Id>@template.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <br />
+                <button class="btn btn-success">Save Item</button>
+            </MudCardContent>
+        </MudCard>
+    </EditForm>
+
+    <hr />
+    <MudTable Elevation="25" Dense="true" Hover="true" Bordered="false" Striped="true" Items="GetAllItem()" Filter="new Func<Item,bool>(Search)"
+              @bind-student="item" SortLabel="Sort By">
+        <ToolBarContent>
+            <MudText Typo="Typo.h6">Item</MudText>
+            <MudSpacer />
+            <MudTextField @bind-Value="searhString" Placeholder="Search For Item.."
+                          Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                          IconSize="Size.Medium" Class="mt-0"></MudTextField>
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh><MudTableSortLabel SortBy="new Func<Item,object>(x=>x.Id)">Id</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<Item,object>(x=>x.Name)">Name</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<Item,object>(x=>x.Code)">Code</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<Item,object>(x=>x.Description)">Description</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<Item,object>(x=>x.Price)">Price</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<Item,object>(x=>x.Gst)">GST</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<Item,object>(x=>x.RevisionNumber)">RevisionNumber</MudTableSortLabel></MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Id">@context.Id</MudTd>
+            <MudTd DataLabel="Name">@context.Name</MudTd>
+            <MudTd DataLabel="Code">@context.Code</MudTd>
+            <MudTd DataLabel="Description">@context.Description</MudTd>
+            <MudTd DataLabel="Price">@context.Price</MudTd>
+            <MudTd DataLabel="GST">@context.Gst</MudTd>
+            <MudTd DataLabel="RevisionNumber">@context.RevisionNumber</MudTd>
+            <MudTd>
+                <MudFab @onclick="@(()=>Edit(Convert.ToInt32(context.Id)))" Color="Color.Primary
+                " Icon="@Icons.Material.Filled.Edit" Size="Size.Small" IconSize="Size.Small" />
+                <MudFab @onclick="@(()=>Delete(Convert.ToInt32(context.Id)))" Color="Color.Secondary
+                     " Icon="@Icons.Material.Filled.Delete" Size="Size.Small" IconSize="Size.Small" />
+            </MudTd>
+        </RowTemplate>
+        <PagerContent>
+            <MudTablePager PageSizeOptions="new int[] {5,10,20,50}" />
+        </PagerContent>
+    </MudTable>
+</div>
+
+
+@code {
+    private string searhString = "";
+    private Item item = new Item();
+    private List<Item> items = new List<Item>();
+    private List<SubCategory> subCategories = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        GetAllItem();
+        GetAllSubCategory();
+    }
+    private List<Item> GetAllItem()
+    {
+        items = itemRepositry.GetCategory();
+        return items;
+    }
+    private List<SubCategory> GetAllSubCategory()
+    {
+        subCategories = subCategoryRepositry.GetSubCategory();
+        return subCategories;
+    }
+    long selectedCategoryId = 0;
+    void seletedItemA(ChangeEventArgs e)
+    {
+        selectedCategoryId = Convert.ToInt64(e.Value);
+    }
+    private bool Search(Item item)
+    {
+        if (item.Name is not null && item.Code is not null && item.Description is not null && item.Gst is not null && item.Price is not null && item.RevisionNumber is not null &&
+        item.Name.Contains(searhString, StringComparison.OrdinalIgnoreCase) ||
+        item.Code.Contains(searhString, StringComparison.OrdinalIgnoreCase)
+        )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    private void Save()
+    {
+        if (selectedCategoryId == 0)
+        {
+            snake.Add("Please select sub Category Name", Severity.Error);
+            return;
+        }
+        if (item.Id != 0)
+        {
+            itemRepositry.InsertCategory(item, selectedCategoryId);
+            snake.Add("item added successfully", Severity.Success);
+            NavManager.NavigateTo("/items", true);
+
+        }
+        else
+        {
+            itemRepositry.InsertCategory(item, selectedCategoryId);
+            GetAllItem();
+            ClearInputFields();
+            snake.Add("item added successfully", Severity.Success);
+        }
+
+    }
+    private void ClearInputFields()
+    {
+        item.Name = string.Empty;
+        item.Code = string.Empty;
+        item.Description = string.Empty;
+        item.Price = 0;
+        item.Gst = 0;
+        item.RevisionNumber = string.Empty;
+    }
+    private void Edit(int Id)
+    {
+        item = items.FirstOrDefault(c => c.Id == Id);
+    }
+    private void Delete(int id)
+    {
+        itemRepositry.DeleteCategory(id);
+        GetAllItem();
+        snake.Add("Item Deleted Successfully", Severity.Success);
+    }
+}

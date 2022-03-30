@@ -8,6 +8,17 @@ a, .btn-link {
     color: #0366d6;
 }
 
+
+.scroll-horizontal {
+    overflow-x: auto;
+    width: 350px;
+}
+
+.scroll-vertical {
+    overflow-y: auto;
+    height: 350px;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;

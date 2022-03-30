@@ -101,7 +101,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Softanize\\Softanize.POS\\Softanize.POZ.DataAccess\\Softanize.POZ.DataAccess.csproj": {
+                "projectPath": "D:\\Softanize\\Softanize.POS\\Softanize.POZ.DataAccess\\Softanize.POZ.DataAccess.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -114,6 +118,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+sQdAT4tbAf6fzLO8kRWeMS5D8joxt7XkJd4J94Mpt0wfBDBnrUyNoGQCbMsD8s2e8rEokt+T4Tt0jEbSltg2g==",
+  "dgSpecHash": "S42jYayfKB0JXL0HSwR36sgN0P9iOHBdM9GhMhArBwHCd7WYu9E5tbDRtRab1Rrqqlqxil5O7n1HdyYQP1Fv9g==",
   "success": true,
   "projectFilePath": "D:\\Softanize\\Softanize.POS\\Softanize.POZ.Service\\Softanize.POZ.Service.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.13\\microsoft.aspnetcore.authorization.5.0.13.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components\\5.0.13\\microsoft.aspnetcore.components.5.0.13.nupkg.sha512",

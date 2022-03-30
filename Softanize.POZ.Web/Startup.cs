@@ -6,16 +6,22 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Softanize.POZ.Web.Data;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection; 
 using Microsoft.Extensions.Hosting;
-using Softanize.POZ.DataAccess.Models;
+//using Softanize.POZ.DataAccess.Models;
 using Softanize.POZ.Web.Areas.Identity;
 using Softanize.POZ.Web.Data;
+using Softanize.POZ.DataAccess.Models;
+using MudBlazor.Services;
+using Softanize.POZ.Service.Service.Sub_Category;
+using Softanize.POZ.Service.Service.My_Item;
+using MudBlazor;
 
 namespace Softanize.POZ.Web
 {
@@ -32,23 +38,36 @@ namespace Softanize.POZ.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-            //    .AddEntityFrameworkStores<SoftanizeContext>();
-
-            services.AddDbContext<SoftanizeContext>(options =>
-               options.UseSqlServer(
-                   Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<SoftanizeDevContext>(options =>
+                 options.UseSqlServer(
+                     Configuration.GetConnectionString("DefaultConnection")));
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<SoftanizeContext>()
+                .AddEntityFrameworkStores<SoftanizeDevContext>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI();
-            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-            //    .AddEntityFrameworkStores<SoftanizeContext>();
-            services.AddRazorPages();
+            services.AddRazorPages();   
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddSingleton<WeatherForecastService>();
+            services.AddMudServices(config =>
+            {
+                config.SnackbarConfiguration.PositionClass = Defaults.Classes.Position.TopEnd;
+
+                config.SnackbarConfiguration.PreventDuplicates = false;
+                config.SnackbarConfiguration.NewestOnTop = false;
+                config.SnackbarConfiguration.ShowCloseIcon = true;
+                config.SnackbarConfiguration.VisibleStateDuration = 10000;
+                config.SnackbarConfiguration.HideTransitionDuration = 500;
+                config.SnackbarConfiguration.ShowTransitionDuration = 500;
+                config.SnackbarConfiguration.SnackbarVariant = Variant.Filled;
+            });
+            services.AddScoped(typeof(IRepositry<>), typeof(Repositry<>));
+            services.AddScoped<CategoryInterface, CategoryRepositry>();
+            services.AddScoped<SubCategoryInterfase, SubCategoryRepositry>();
+            services.AddScoped<ItemInterface,ItemRepositry>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

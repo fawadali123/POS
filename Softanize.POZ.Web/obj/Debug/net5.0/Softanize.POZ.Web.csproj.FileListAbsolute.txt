@@ -130,7 +130,6 @@ D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Softanize.POZ.Web.
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Softanize.POZ.Web.AssemblyInfoInputs.cache
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Softanize.POZ.Web.AssemblyInfo.cs
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Softanize.POZ.Web.csproj.CoreCompileInputs.cache
-D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Softanize.POZ.Web.MvcApplicationPartsAssemblyInfo.cs
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Softanize.POZ.Web.MvcApplicationPartsAssemblyInfo.cache
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Softanize.POZ.Web.RazorComponent.input.cache
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
@@ -193,6 +192,7 @@ D:\Softanize\Softanize.POS\Softanize.POZ.Web\bin\Debug\net5.0\Softanize.POZ.Serv
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\bin\Debug\net5.0\Softanize.POZ.DataAccess.pdb
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\bin\Debug\net5.0\Softanize.POZ.Model.pdb
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\bin\Debug\net5.0\Softanize.POZ.Service.pdb
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Softanize.POZ.Web.MvcApplicationPartsAssemblyInfo.cs
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\AccessDenied.cshtml.g.cs
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.g.cs
@@ -203,6 +203,7 @@ D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identi
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.g.cs
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\LoginWithRecoveryCode.cshtml.g.cs
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.g.cs
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.g.cs
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml.g.cs
@@ -232,4 +233,17 @@ D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identi
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
-D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\bin\Debug\net5.0\AutoMapper.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\RazorDeclaration\Pages\Item\CategoryComponent.razor.g.cs
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\RazorDeclaration\Pages\Item\SubCategoryComponent.razor.g.cs
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\RazorDeclaration\Pages\Items.razor.g.cs
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Pages\Items.razor.g.cs
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Pages\Item\CategoryComponent.razor.g.cs
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Pages\Item\SubCategoryComponent.razor.g.cs
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\RazorDeclaration\Pages\Item\ItemComponent.razor.g.cs
+D:\Softanize\Softanize.POS\Softanize.POZ.Web\obj\Debug\net5.0\Razor\Pages\Item\ItemComponent.razor.g.cs

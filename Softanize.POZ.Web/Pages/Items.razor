@@ -1,0 +1,41 @@
+﻿@page "/items"
+@using Softanize.POZ.DataAccess.Models
+@using Softanize.POZ.Model.DTO;
+@inject Softanize.POZ.Service.Service.My_Item.CategoryInterface CategoryRepositry
+@inject MudBlazor.ISnackbar Snakebar
+@inject NavigationManager NavManager
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <CategoryComponent></CategoryComponent>
+        </div>
+        <div class="col-md-6">
+            <SubCategoryComponent categories="categories"></SubCategoryComponent>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-12">
+            <ItemComponent></ItemComponent>
+        </div>
+    </div>
+</div>
+
+
+
+
+@code {
+    private List<Category> categories = new List<Category>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        GetAllCategory();
+    }
+    private List<Category> GetAllCategory()
+    {
+        categories = CategoryRepositry.GetCategory();
+        return categories;
+    }
+}

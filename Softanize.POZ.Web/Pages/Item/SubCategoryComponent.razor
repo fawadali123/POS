@@ -1,0 +1,173 @@
+﻿@using Softanize.POZ.DataAccess.Models
+@using Softanize.POZ.Model.DTO;
+@inject Softanize.POZ.Service.Service.Sub_Category.SubCategoryInterfase subCategoryRepositry
+@inject Softanize.POZ.Service.Service.My_Item.CategoryInterface CategoryRepositry
+@inject ISnackbar snake
+@inject NavigationManager NavManager
+
+<div class="container scroll-vertical">
+    <EditForm Model="subCategory" OnValidSubmit="Save">
+        <MudCard Elevation="25">
+            <DataAnnotationsValidator />
+            <MudCardContent>
+                <MudText Class="mr-0 mt-0 ml-0" Typo="Typo.h6">Add/Edit Sub Category</MudText>
+                <div class="row">
+                    <div class="col-md-6">
+                        <MudTextField @bind-Value="subCategory.Name" Label="Sub Category Name"
+                                      Variant="Variant.Text" Margin="Margin.Normal">
+                        </MudTextField>
+                        <ValidationMessage For="()=>subCategory.Name" />
+                    </div>
+                    <div class="col-md-6">
+                        <MudTextField @bind-Value="subCategory.Code" Label="Code"
+                                      Variant="Variant.Text" Margin="Margin.Normal">
+                        </MudTextField>
+                        <ValidationMessage For="()=>subCategory.Code" />
+                    </div>
+                    <div class="col-md-6">
+                        <select @onchange="seletedItemA" class="form-control">
+                            @foreach (var template in categories)
+                            {
+                                <option value=@template.Id>@template.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                </div>
+
+                <br />
+                <button class="btn btn-success">Save SubCategory</button>
+            </MudCardContent>
+        </MudCard>
+    </EditForm>
+    <hr />
+    <MudTable Elevation="25" Items="GetAllSubCategory()" Dense="true" Hover="true" Bordered="false" Striped="true" Filter="new Func<SubCategory,bool>(SearchSubCategory)"
+              @bind-student="subCategory" SortLabel="Sort By">
+        <ToolBarContent>
+            <MudText Typo="Typo.h6">Sub Category</MudText>
+            <MudSpacer />
+            <MudTextField @bind-Value="searhString" Placeholder="Search For Students.."
+                          Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                          IconSize="Size.Medium" Class="mt-0"></MudTextField>
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh><MudTableSortLabel SortBy="new Func<SubCategory,object>(x=>x.Id)">Id</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<SubCategory,object>(x=>x.Name)">Name</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<SubCategory,object>(x=>x.Code)">Code</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<SubCategory,object>(x=>x.CategoryId)">Category Id</MudTableSortLabel></MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Id">@context.Id</MudTd>
+            <MudTd DataLabel="Name">@context.Name</MudTd>
+            <MudTd DataLabel="Code">@context.Code</MudTd>
+            <MudTd DataLabel="Code">@context.CategoryId</MudTd>
+            <MudTd>
+                <MudFab @onclick="@(()=>EditSubCategory(Convert.ToInt32(context.Id)))" Color="Color.Primary
+                " Icon="@Icons.Material.Filled.Edit" Size="Size.Small" IconSize="Size.Small" />
+                <MudFab @onclick="@(()=>DeleteSubCategory(Convert.ToInt32(context.Id)))" Color="Color.Secondary
+                     " Icon="@Icons.Material.Filled.Delete" Size="Size.Small" IconSize="Size.Small" />
+            </MudTd>
+        </RowTemplate>
+        <PagerContent>
+            <MudTablePager PageSizeOptions="new int[] {5,10,20,50}" />
+        </PagerContent>
+    </MudTable>
+</div>
+
+
+
+@code {
+    [Parameter]
+    public List<Category> categories { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        GetAllSubCategory();
+        GetAllCategory();
+    }
+    public Category SelectedTestItems = new() { };
+    private Category GetCategory(int Id)
+    {
+        SelectedTestItems = CategoryRepositry.GetCategoryById(Id);
+        return SelectedTestItems;
+    }
+    private string searhString = "";
+    private SubCategory subCategory = new SubCategory();
+    private List<SubCategory> subCategories = new List<SubCategory>();
+    private List<Category> Category = new List<Category>();
+    private List<Category> Categori = new List<Category>();
+    private List<SubCategory> GetAllSubCategory()
+    {
+        subCategories = subCategoryRepositry.GetSubCategory();
+        return subCategories;
+    }
+    public List<Category> categorie = new();
+    private List<Category> GetAllCategory()
+    {
+        categorie = CategoryRepositry.GetCategory();
+        return categorie;
+    }
+    long selectedCategoryId = 0;
+    void seletedItemA(ChangeEventArgs e)
+    {
+        selectedCategoryId = Convert.ToInt64(e.Value);
+    }
+    private bool SearchSubCategory(SubCategory student)
+    {
+        if (student.Name is not null && student.Code is not null &&
+        student.Name.Contains(searhString, StringComparison.OrdinalIgnoreCase) ||
+        student.Code.Contains(searhString, StringComparison.OrdinalIgnoreCase)
+        )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public Category selectitem(int Id)
+    {
+        SelectedTestItems = CategoryRepositry.GetCategoryById(Id);
+        return SelectedTestItems;
+    }
+    private string ToString(Category x)
+       => x is null ? string.Empty : $"{x.Name}";
+    private void Save()
+    {
+        if (selectedCategoryId == 0)
+        {
+            snake.Add("Please select Category Name", Severity.Error);
+            return;
+        }
+        if (subCategory.Id != 0)
+        {
+            subCategoryRepositry.InsertSubCategory(subCategory, selectedCategoryId);
+            snake.Add("subCategory added successfully", Severity.Success);
+            NavManager.NavigateTo("/items", true);
+        }
+        else
+        {
+            subCategoryRepositry.InsertSubCategory(subCategory, selectedCategoryId);
+            snake.Add("subCategory added successfully", Severity.Success);
+            GetAllSubCategory();
+            ClearInputFields();
+        }
+
+
+    }
+    private void ClearInputFields()
+    {
+        subCategory.Name = string.Empty;
+        subCategory.Code = string.Empty;
+    }
+    private void EditSubCategory(int Id)
+    {
+        subCategory = subCategories.FirstOrDefault(c => c.Id == Id);
+    }
+    private void DeleteSubCategory(int id)
+    {
+        subCategoryRepositry.DeleteSubCategory(id);
+        GetAllSubCategory();
+    }
+
+}

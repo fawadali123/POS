@@ -13,3 +13,6 @@ D:\Softanize\Softanize.POS\Softanize.POZ.Model\bin\Debug\net5.0\Softanize.POZ.Mo
 D:\Softanize\Softanize.POS\Softanize.POZ.Model\bin\Debug\net5.0\Softanize.POZ.Model.runtimeconfig.dev.json
 D:\Softanize\Softanize.POS\Softanize.POZ.Model\obj\Debug\net5.0\Softanize.POZ.Model.genruntimeconfig.cache
 D:\Softanize\Softanize.POS\Softanize.POZ.Model\obj\Debug\net5.0\Softanize.POZ.Model.csproj.AssemblyReference.cache
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\bin\Debug\net5.0\Softanize.POZ.DataAccess.dll
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\bin\Debug\net5.0\Softanize.POZ.DataAccess.pdb
+D:\Softanize\Softanize.POS\Softanize.POZ.Model\obj\Debug\net5.0\Softanize.POZ.Model.csproj.CopyComplete

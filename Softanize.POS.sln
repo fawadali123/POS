@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softanize.POZ.Model", "Soft
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softanize.POZ.Service", "Softanize.POZ.Service\Softanize.POZ.Service.csproj", "{A9122FEE-969D-471A-BEF7-0B9FC8248A10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softanize.POZ.Web", "Softanize.POZ.Web\Softanize.POZ.Web.csproj", "{633BBD5A-AE66-453D-924E-27DAED1A0518}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softanize.POZ.Web", "Softanize.POZ.Web\Softanize.POZ.Web.csproj", "{633BBD5A-AE66-453D-924E-27DAED1A0518}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -82,6 +82,20 @@ using Softanize.POZ.Web.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "D:\Softanize\Softanize.POS\Softanize.POZ.Web\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "D:\Softanize\Softanize.POS\Softanize.POZ.Web\_Imports.razor"
+using Softanize.POZ.Web.Pages.Item;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -90,7 +104,7 @@ using Softanize.POZ.Web.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "D:\Softanize\Softanize.POS\Softanize.POZ.Web\Shared\NavMenu.razor"
+#line 33 "D:\Softanize\Softanize.POS\Softanize.POZ.Web\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

@@ -80,6 +80,20 @@ using Softanize.POZ.Web.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "D:\Softanize\Softanize.POS\Softanize.POZ.Web\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "D:\Softanize\Softanize.POS\Softanize.POZ.Web\_Imports.razor"
+using Softanize.POZ.Web.Pages.Item;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "D:\Softanize\Softanize.POS\Softanize.POZ.Web\Pages\FetchData.razor"
 using Softanize.POZ.Web.Data;
 

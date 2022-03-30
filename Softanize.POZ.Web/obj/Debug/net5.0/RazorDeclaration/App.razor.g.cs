@@ -82,6 +82,20 @@ using Softanize.POZ.Web.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "D:\Softanize\Softanize.POS\Softanize.POZ.Web\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "D:\Softanize\Softanize.POS\Softanize.POZ.Web\_Imports.razor"
+using Softanize.POZ.Web.Pages.Item;
+
+#line default
+#line hidden
+#nullable disable
     public partial class App : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998

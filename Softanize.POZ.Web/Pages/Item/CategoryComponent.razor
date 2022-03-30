@@ -1,0 +1,139 @@
+﻿@using Softanize.POZ.DataAccess.Models
+@using Softanize.POZ.Model.DTO;
+@using System.Timers;
+@inject Softanize.POZ.Service.Service.My_Item.CategoryInterface itemRepositry
+@inject ISnackbar snake
+@inject NavigationManager NavManager
+
+
+<div class="container scroll-vertical">
+    <EditForm Model="category" OnValidSubmit="Save">
+        <DataAnnotationsValidator />
+        <MudCard Elevation="25">
+            <MudCardContent>
+                <MudText Typo="Typo.h6" Class="mr-0 mt-0 ml-0">Add/Edit Category</MudText>
+                <div class="row">
+                    <div class="col-md-6">
+                        <MudTextField Class="mr-0 mt-0 ml-0" @bind-Value="category.Name" Label="Category Name"
+                                      Variant="Variant.Text" Margin="Margin.Normal">
+                        </MudTextField>
+                        <ValidationMessage For="()=>category.Name" />
+                    </div>
+                    <div class="col-md-6">
+                        <MudTextField Class="mr-0 mt-0 ml-0" @bind-Value="category.Code" Label="Code"
+                                      Variant="Variant.Text" Margin="Margin.Normal">
+                        </MudTextField>
+                        <ValidationMessage For="()=>category.Code" />
+                    </div>
+                </div>
+                <br />
+                <button class="btn btn-success">
+                    Save Category
+                </button>
+            </MudCardContent>
+        </MudCard>
+    </EditForm>
+    <hr />
+    <MudTable Items="GetAllCategory()" Dense="true" Hover="true" Bordered="false" Striped="true" Filter="new Func<Category,bool>(Search)">
+        <ToolBarContent>
+            <MudText Typo="Typo.h6">Category</MudText>
+            <MudSpacer />
+            <MudTextField @bind-Value="searhString" Placeholder="Search For Category.."
+                          Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                          IconSize="Size.Medium" Class="mt-0"></MudTextField>
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh><MudTableSortLabel SortBy="new Func<Category,object>(x=>x.Id)">Id</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<Category,object>(x=>x.Name)">Name</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<Category,object>(x=>x.Code)">Code</MudTableSortLabel></MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Id">@context.Id</MudTd>
+            <MudTd DataLabel="Name">@context.Name</MudTd>
+            <MudTd DataLabel="Code">@context.Code</MudTd>
+            <MudTd>
+                <MudFab @onclick="@(()=>Edit(Convert.ToInt32(context.Id)))" Color="Color.Primary
+                " Icon="@Icons.Material.Filled.Edit" Size="Size.Small" IconSize="Size.Small" />
+                <MudFab @onclick="@(()=>Delete(Convert.ToInt32(context.Id)))" Color="Color.Secondary
+                     " Icon="@Icons.Material.Filled.Delete" Size="Size.Small" IconSize="Size.Small" />
+            </MudTd>
+        </RowTemplate>
+        <PagerContent>
+            <MudTablePager PageSizeOptions="new int[] {5,10,20,50}" />
+        </PagerContent>
+    </MudTable>
+</div>
+
+
+
+@code {
+    private string searhString = "";
+    private Category category = new Category();
+    private List<Category> categories = new List<Category>();
+    protected override async Task OnInitializedAsync()
+    {
+        GetAllCategory();
+    }
+    private List<Category> GetAllCategory()
+    {
+        categories = itemRepositry.GetCategory();
+        return categories;
+    }
+    private bool Search(Category student)
+    {
+        if (student.Name is not null && student.Code is not null &&
+        student.Name.Contains(searhString, StringComparison.OrdinalIgnoreCase) ||
+        student.Code.Contains(searhString, StringComparison.OrdinalIgnoreCase)
+        )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    private void Save()
+    {
+        if (category.Id != 0)
+        {
+            itemRepositry.InsertCategory(category);
+            snake.Add("Category add Successfully", Severity.Success);
+            Timer timer = new Timer();
+            timer.Interval = 10000;
+            NavManager.NavigateTo("/items", true);
+        }
+        else
+        {
+            itemRepositry.InsertCategory(category);
+            ClearInputFields();
+            snake.Add("Category add Successfully", Severity.Success);
+            GetAllCategory();
+        }
+
+    }
+    private void ClearInputFields()
+    {
+        category.Name = String.Empty;
+        category.Code = String.Empty;
+    }
+    private void Edit(int Id)
+    {
+        category = categories.FirstOrDefault(c => c.Id == Id);
+    }
+    private void Delete(int id)
+    {
+        itemRepositry.DeleteCategory(id);
+        snake.Add("Category deleted Su  ccessfully", Severity.Success);
+        GetAllCategory();
+    }
+}
+
+
+
+
+
+
+
+
+
